@@ -1,0 +1,33 @@
+# ---------- 依赖 ----------
+node_modules/
+
+# ---------- 构建 / 打包产物 ----------
+dist/
+release/
+
+# ---------- 个人环境配置 ----------
+.npmrc
+
+# ---------- 日志 ----------
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- 编辑器 / IDE ----------
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ---------- 操作系统 ----------
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ---------- Electron 打包中间产物 ----------
+*.exe.blockmap

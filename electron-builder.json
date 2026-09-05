@@ -1,0 +1,37 @@
+{
+  "appId": "com.deskcanvas.app",
+  "productName": "DeskCanvas",
+  "directories": {
+    "output": "release"
+  },
+  "electronDist": "node_modules/electron/dist",
+  "files": [
+    "dist/**/*",
+    "package.json",
+    "build/icon.png"
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      },
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "build/icon.png",
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "DeskCanvas"
+  },
+  "portable": {
+    "artifactName": "${productName}-${version}-portable.exe"
+  }
+}

@@ -1,0 +1,57 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import electron from 'vite-plugin-electron';
+import renderer from 'vite-plugin-electron-renderer';
+import { resolve } from 'path';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    electron([
+      {
+        // 主进程
+        entry: 'src/main/index.ts',
+        vite: {
+          build: {
+            outDir: 'dist/main',
+            rollupOptions: {
+              external: [
+                'electron',
+                'sql.js',
+                'koffi',
+                'sharp',
+                'wallpaper',
+                'uuid',
+                'electron-store',
+              ],
+            },
+          },
+        },
+      },
+      {
+        // Preload 脚本
+        entry: 'src/preload/index.ts',
+        onstart(args) {
+          args.reload();
+        },
+        vite: {
+          build: {
+            outDir: 'dist/preload',
+          },
+        },
+      },
+    ]),
+    renderer(),
+  ],
+  resolve: {
+    alias: {
+      '@shared': resolve(__dirname, 'src/shared'),
+      '@main': resolve(__dirname, 'src/main'),
+      '@renderer': resolve(__dirname, 'src/renderer'),
+      '@preload': resolve(__dirname, 'src/preload'),
+    },
+  },
+  build: {
+    outDir: 'dist/renderer',
+  },
+});

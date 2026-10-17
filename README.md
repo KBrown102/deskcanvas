@@ -14,9 +14,13 @@ DeskCanvas 是一款基于 Electron 的 Windows 桌面壁纸创作工具：通�
 - **系统托盘**：常驻托盘，快捷显示主窗口 / 退出
 - **本地优先**：所有数据存于本地 SQLite，API Key 仅存本机，不上传任何数据
 
+## ⬇️ 下载安装
+
+不想自己构建？直接到 [Releases](https://github.com/KBrown102/deskcanvas/releases) 下载安装包（NSIS 安装版 / 便携版），解压即用。
+
 ## 🚀 快速开始
 
-> 环境要求：Windows 10/11，Node.js 18+
+> 环境要求：Windows 10/11，Node.js 18+（Windows 24H2 的 WorkerW 兼容性实机验证进度见 [STATUS.md](STATUS.md)）
 
 ```bash
 # 1. 安装依赖（postinstall 会自动重编译 better-sqlite3）
